@@ -1,0 +1,31 @@
+Part1 expression types
+a.[(3,4);(5,6)]  -: (int*int) list
+b.(['a'],'b') -: char list * char
+c.[[None]]  :- 'a option list list
+d.fun f (z,v,t) -> if f z == "inf" && v t == "mar" then "win" else "lose"  -: 
+('a -> string) -> 'a * ('b->string)*'b -> string = <fun>
+
+
+
+Give expressions that have the following OCaml types:
+e
+f. bool -> 'a -> ('b->'a) -> 'b -> 'a 
+fun a b c d -> if a == true then b else c d;;
+i
+let num = 2100 in
+let first = num / 100 in
+let second = num mod 100 in
+let third = first - second - second - second in
+let ans = first + second + third in
+if ans != 42 then failwith "argh"
+
+j.
+
+ let nums = [(1,1);(1,2)] in 
+  let filterer zardoz =
+  List.filter ( fun x-> x>0) zardoz in
+  let splitter zardoz =
+  let (a,b) = List.split zardoz in b in
+  let zardoz = filterer ( splitter nums ) in 
+  if List.length zardoz = 0 then failwith "argh";;
+
