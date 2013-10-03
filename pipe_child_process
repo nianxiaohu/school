@@ -1,0 +1,4 @@
+variable="initial_value"
+echo "new_value" | read variable
+echo "variable = $variable"
+#variable = initial_value

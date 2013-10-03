@@ -1,0 +1,19 @@
+#!/bin/bash
+# Reading lines in /etc/fstab.
+File=~/myCOSINE.m
+{
+read line1
+read line2
+} < $File
+echo
+echo
+echo
+echo
+echo
+"First line in $File is:"
+"$line1"
+"Second line in $File is:"
+"$line2"
+# Now, how do you parse the separate fields of each line?
+# Hint: use awk, or . . .
+# . . . Hans-Joerg Diers suggests using the "set" Bash builtin.
