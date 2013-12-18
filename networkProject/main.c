@@ -18,7 +18,7 @@ int rootNode;
 int networkSetup();
 int main(void) {
   FILE *ofp;
-  char *mode = "a";
+  char *mode = "w";
   char outputFileName[] = "output.txt";
   ofp = fopen(outputFileName,mode);
   if(ofp == NULL) {
@@ -54,7 +54,10 @@ int main(void) {
       for(;i<nodeNumber;i++) 
 	{
 	  if(indegreeDistribution[i])
-	    fprintf(ofp,"%d %d\n",indegreeDistribution[i],i);
+	    {
+	      printf("Hello\n");
+	      fprintf(ofp,"%d %d\n",indegreeDistribution[i],i);
+	    }
 	}
       traverseNode = &initialNode[rootNode];
       i=0;
@@ -71,7 +74,7 @@ int main(void) {
       free(indegreeDistribution);
       free(maxdepthTable);
     }
-
+  fclose(ofp);
   return 0;
 }
 int networkSetup() {
