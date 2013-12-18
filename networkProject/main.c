@@ -18,9 +18,8 @@ int rootNode;
 int networkSetup();
 int main(void) {
   FILE *ofp;
-  char *mode = "w";
+  char *mode = "a";
   char outputFileName[] = "output.txt";
-  ofp = fopen(outputFileName,mode);
   if(ofp == NULL) {
     fprintf(stderr, "Can't open output file%s!\n",outputFileName);
     exit(1);
@@ -29,6 +28,11 @@ int main(void) {
     {
       int i;
       errno = 0;
+      ofp = fopen(outputFileName,mode);
+      if(ofp == NULL) {
+	fprintf(stderr, "Can't open output file%s!\n",outputFileName);
+	exit(1);
+      }
       printf("Enter nodeNumber copyProbability:\n");
       i = scanf("%d%f",&nodeNumber,&probability);
       if ( i == 2){
@@ -73,8 +77,8 @@ int main(void) {
       free(indegreeTable);
       free(indegreeDistribution);
       free(maxdepthTable);
+      fclose(ofp);
     }
-  fclose(ofp);
   return 0;
 }
 int networkSetup() {
